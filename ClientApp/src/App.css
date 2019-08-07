@@ -1,0 +1,40 @@
+.navbar-nav {
+  display: flex;
+}
+
+.navbar-nav li {
+  flex: 1;
+}
+
+.navbar-nav a, .dropdown-toggle {
+  height: 50px;
+}
+
+.navbar-nav .active,.navbar-nav a:hover, .dropdown-toggle:hover  {
+  background: rgb(212, 206, 206);
+  color: black !important;
+}
+
+.navbar-brand {
+  margin: -15px;
+  font-weight: bold;
+  height: 100%;
+  cursor: pointer;
+}
+
+.navbar-brand > a:hover {
+  text-decoration: none;
+}
+
+.navbar, .dropdown-toggle {
+  color: white;
+  background: black;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.open > .dropdown-menu {
+  display: block;
+}
