@@ -15,7 +15,6 @@ using StudyPortal.Helpers;
 namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -32,7 +31,7 @@ namespace StudyPortal.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("[action]")]
         public async Task<Object> Register([FromBody] RegisterModel model)
         {
             if(ModelState.IsValid)
@@ -49,8 +48,7 @@ namespace StudyPortal.Controllers
                     var responseData = new LoginModel()
                     {
                         Token = token,
-                        UserName = user.UserName,
-                        Email = user.Email    
+                        UserName = user.UserName
                     };
                     return responseData;
                 }
@@ -69,7 +67,7 @@ namespace StudyPortal.Controllers
             return ErrorList;
         }
 
-        [HttpGet("[action]")]
+        [HttpPost("[action]")]
         [Authorize]
         public async Task<object> LogOut() 
         {
@@ -92,13 +90,12 @@ namespace StudyPortal.Controllers
                     var responseData = new LoginModel()
                     {
                         Token = token,
-                        UserName = user.UserName,
-                        Email = user.Email    
+                        UserName = user.UserName
                     };
                     return responseData;
                 }
                 
-                return new CustomError() {code = "LogInFailed", description = "Log In Failed"};
+                return new [] { new CustomError() {code = "LogInFailed", description = "Incorrect User Name or Password"}};
             }
 
             List<CustomError> ErrorList = new List<CustomError>();

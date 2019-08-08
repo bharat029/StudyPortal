@@ -5,20 +5,24 @@ export const UserContext = createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CHECK_LOCAL':
-      return { ...state, udi: localStorage.getItem('uid') }
+      let token = localStorage.getItem('token')
+      let signedIn = JSON.parse(localStorage.getItem('signedIn'))
+      return { ...state, token, signedIn }
     case 'SIGN_IN':
-      localStorage.setItem('uid', action.data)
-      return { ...state, uid: action.data }
+      localStorage.setItem('token', action.token)
+      localStorage.setItem('signedIn', true)
+      return { ...state, token: action.token, signedIn: true }
     case 'SIGN_OUT':
-      localStorage.removeItem('uid')
-      return { ...state, uid: null }
+      localStorage.removeItem('token')
+      localStorage.setItem('signedIn', false)
+      return { ...state, token: null, signedIn: false }
     default:
       return { ...state }
   }
 }
 
 const UserContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, {uid: null})
+  const [state, dispatch] = useReducer(reducer, {})
 
   useEffect(() => {
     dispatch({type: 'CHECK_LOCAL'})

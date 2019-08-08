@@ -10,7 +10,7 @@ const Home = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      {context.state.uid ? <button onClick={() => context.dispatch({type:'SIGN_OUT'})} className="btn btn-danger">Log Out</button> : <Redirect to="/signin" />}
+      {context.state.signedIn ? <button onClick={() => context.dispatch({type:'SIGN_OUT'})} className="btn btn-danger">Log Out</button> : <Redirect to="/signin" />}
     </>
   )
 }

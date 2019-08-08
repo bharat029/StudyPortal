@@ -4,12 +4,15 @@ import { Redirect, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import ErrorList from './ErrorList';
 
-const SignIn = () => {
+const SignUp = () => {
   const context = useContext(UserContext)
 
   const initialState = {
     userName: "default",
-    password: "default"
+    email: "default",
+    role: "Student",
+    password: "default",
+    confirmPassword: "default"
   }
 
   const [state, setState] = useState(initialState)
@@ -26,12 +29,12 @@ const SignIn = () => {
   const submited = (e) => {
     e.preventDefault()
 
-    if(state.userName === 'default' || state.password === 'default')
+    if(state.userName === 'default' || state.password === 'default' || state.email === 'default' || state.confirmPassword === 'default')
     {
       return
     }
 
-    fetch('/api/user/login', {
+    fetch('/api/user/register', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +56,7 @@ const SignIn = () => {
   return (
     <>
       <Helmet>
-        <title>Sign In - Study Portal</title>
+        <title>Sign Up - Study Portal</title>
       </Helmet>
       {
         !context.state.signedIn 
@@ -66,14 +69,29 @@ const SignIn = () => {
               <input type="text" onChange={changeHandler} className="form-control" placeholder="User Name" name="userName" id="userName" />
             </div>
             <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input type="text" onChange={changeHandler} className="form-control" placeholder="Email"  name="email" id="email" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="role">Role:</label>
+              <select className="form-control" defaultValue="Student" id="role" name="role">
+                <option value="Student">Student</option>
+                <option value="Mentor">Mentor</option>
+              </select>
+            </div>
+            <div className="form-group">
               <label htmlFor="password">Password:</label>
               <input type="password" onChange={changeHandler} className="form-control" placeholder="Password"  name="password" id="password" />
             </div>
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input type="password" onChange={changeHandler} className="form-control" placeholder="Confirm Password"  name="confirmPassword" id="confirmPassword" />
+            </div>
             <div id='submit' className="form-group col-12 text-center">
-              <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">Sign In</button>
+              <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">Sign Up</button>
             </div>
           </form>
-          <div className="small">Don't have an account?<Link to="/signup">Click here</Link> to create a new account.</div>
+          <div className="small">Already have an account?<Link to="/signin">Click here</Link> to sign in.</div>
         </>) 
         : <Redirect to="/" />
       }
@@ -81,4 +99,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignUp
