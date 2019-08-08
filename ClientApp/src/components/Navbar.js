@@ -10,6 +10,8 @@ const Navbar = () => {
     context.dispatch({type:'SIGN_OUT'})
   }
 
+	const collapse = (e) => document.querySelector('.collapse').classList = "collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end"
+
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark row sticky-top border-bottom">
 			<div className="navbar-brand border-0 text-center col-md-4 col-9 m-0 ml-3 p-0">
@@ -21,36 +23,36 @@ const Navbar = () => {
 			<div className="collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end" id="navbarNav">
 				<ul className="navbar-nav col-12 col-md-5">
 					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" exact to="/">Home</NavLink>
+						<NavLink className="nav-link text-white text-center" onClick={collapse}  exact to="/">Home</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" to="/aboutus">About Us</NavLink>
+						<NavLink className="nav-link text-white text-center" onClick={collapse}  to="/aboutus">About Us</NavLink>
 					</li>
-        </ul>
+				</ul>
 				<div className="dropdown col-12 col-md-2">
-					<button className="btn btn-secondary m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+					<button className="btn btn-secondary col-12 m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">
 						Dropdown
 					</button>
-					<div className="dropdown-menu text-center" aria-labelledby="triggerId">
-						<button className="dropdown-item" href="#">Action</button>
-						<button className="dropdown-item disabled" href="#">Disabled action</button>
+					<div className="dropdown-menu text-center col-12" aria-labelledby="triggerId">
+						<Link className="dropdown-item col-12" onClick={collapse}  href="#">Action</Link>
+						<Link className="dropdown-item col-12 disabled" onClick={collapse}  href="#">Disabled action</Link>
 					</div>
 				</div>  
-				<ul className="navbar-nav col-12 col-md-5">
+				<ul className="list-unstyled col-12 col-md-5">
           {
             context && context.state.signedIn  
             ? (
-              <li className="nav-item">
-                <Link onClick={LogOut} className="nav-link text-white text-center" to="/">Log Out</Link>
+              <li className="float-right">
+                <Link onClick={LogOut} className="btn btn-primary m-2 dol-6 text-white text-center" to="/">Log Out</Link>
               </li>
             )
             : (<>
-              <li className="nav-item">
-                <Link className="nav-link text-white text-center" to="/signup">Register</Link>
+              <li className="float-right">
+                <Link className="btn btn-primary m-2 dol-6 text-white text-center" to="/signup">Register</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white text-center" to="/signin">Log In</Link>
+              <li className="float-right">
+                <Link className="btn btn-primary m-2 dol-6 text-white text-center" to="/signin">Log In</Link>
               </li>
             </>)
           }
