@@ -61,7 +61,7 @@ const SignUp = () => {
       {
         !context.state.signedIn 
         ? (<>
-          <h2>Sign In</h2>
+          <h2>Sign Up</h2>
           <form method="post" onSubmit={submited} className="col-md-5 offset-md-1 mt-5" action="">
             { errors && <ErrorList errors={errors} /> }
             <div className="form-group">
