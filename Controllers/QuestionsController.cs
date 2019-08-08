@@ -1,16 +1,16 @@
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using StudyPortal.Services;
 using StudyPortal.Models;
+using StudyPortal.Models.RequestModel;
+using StudyPortal.Models.ResponseModel;
 
 namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class QuestionsController : Controller
     {
         private readonly QuestionsServices _questionsServices;
@@ -25,6 +25,31 @@ namespace StudyPortal.Controllers
         {
             List<Questions> questions = _questionsServices.Get();
             return questions;
+        }
+
+        [HttpPost("[action]")]
+        public Object Create([FromBody] QuestionsModel model) 
+        {
+            if(ModelState.IsValid)
+            {
+                var questions = _questionsServices.Create(new Questions() {
+                    Question = model.Question,
+                    OptionA = model.OptionA,
+                    OptionB = model.OptionB,
+                    OptionC = model.OptionC,
+                    OptionD = model.OptionD,
+                    CorrectOption = model.CorrectOption
+                });
+                return questions;
+            }
+            List<CustomError> ErrorList = new List<CustomError>();
+
+            foreach (var key in ModelState.Keys)
+            {   
+                ErrorList.Add(new CustomError() {code = key, description = ModelState[key].Errors[0].ErrorMessage});
+            }
+
+            return ErrorList;
         }
     }
 }

@@ -5,22 +5,29 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
 using StudyPortal.Models.Identity;
 using StudyPortal.Models.RequestModel;
+using StudyPortal.Models.ResponseModel;
+using StudyPortal.Helpers;
 
 namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
+        private readonly IConfiguration _configuration;
 
-        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<UserController> logger)
+        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, ILogger<UserController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _configuration = configuration;
             _logger = logger;
 
         }
@@ -37,8 +44,15 @@ namespace StudyPortal.Controllers
                 if(result.Succeeded) 
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation($"User {user.UserName} created!");
-                    return new {RegisteredAndSignIned = _signInManager.CanSignInAsync(user).Result};
+                     var token = AuthenticationHelper.GenerateJwtToken(user, _configuration);
+
+                    var responseData = new LoginModel()
+                    {
+                        Token = token,
+                        UserName = user.UserName,
+                        Email = user.Email    
+                    };
+                    return responseData;
                 }
                 
                 _logger.LogWarning($"User {user.UserName} created!");
@@ -60,7 +74,6 @@ namespace StudyPortal.Controllers
         public async Task<object> LogOut() 
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation("User Signed Out!");
             return new {SignOuted = true};
         }
 
@@ -73,11 +86,18 @@ namespace StudyPortal.Controllers
 
                 if(result.Succeeded) 
                 {
-                    _logger.LogInformation($"{model.UserName} Signed In!");
-                    return new {SignIned = true};
+                    var user = _userManager.Users.SingleOrDefault(r => r.UserName == model.UserName);
+                    var token = AuthenticationHelper.GenerateJwtToken(user, _configuration);
+
+                    var responseData = new LoginModel()
+                    {
+                        Token = token,
+                        UserName = user.UserName,
+                        Email = user.Email    
+                    };
+                    return responseData;
                 }
                 
-                _logger.LogInformation($"{model.UserName} Sign In Falied!");
                 return new CustomError() {code = "LogInFailed", description = "Log In Failed"};
             }
 
@@ -92,15 +112,7 @@ namespace StudyPortal.Controllers
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<ApplicationUser> Users() 
-        {
-            return _userManager.Users;
-        } 
+        [Authorize]
+        public IEnumerable<ApplicationUser> Users() => _userManager.Users;
     }
-
-    public class CustomError 
-    {
-        public string code { get; set; }
-        public string description { get; set; }
-    } 
 }
