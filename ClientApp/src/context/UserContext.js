@@ -7,15 +7,18 @@ const reducer = (state, action) => {
     case 'CHECK_LOCAL':
       let token = localStorage.getItem('token')
       let signedIn = JSON.parse(localStorage.getItem('signedIn'))
-      return { ...state, token, signedIn }
+      let userName = localStorage.getItem('userName')
+      return { ...state, token, signedIn, userName }
     case 'SIGN_IN':
-      localStorage.setItem('token', action.token)
+      localStorage.setItem('token', action.data.token)
       localStorage.setItem('signedIn', true)
-      return { ...state, token: action.token, signedIn: true }
+      localStorage.setItem('userName', action.data.userName)
+      return { ...state, token: action.data.token, signedIn: true, userName: action.data.userName }
     case 'SIGN_OUT':
       localStorage.removeItem('token')
+      localStorage.removeItem('userName')
       localStorage.setItem('signedIn', false)
-      return { ...state, token: null, signedIn: false }
+      return { ...state, token: null, signedIn: false, userName: null }
     default:
       return { ...state }
   }

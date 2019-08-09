@@ -41,9 +41,8 @@ const SignIn = () => {
       .then(response => response.json())
       .then(data => {
         if(data.token){
-          context.dispatch({type: 'SIGN_IN', token: data.token})
+          context.dispatch({type: 'SIGN_IN', data})
         } else {
-          console.log(data)
           setErrors(data)
         }
       })

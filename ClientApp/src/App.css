@@ -38,3 +38,51 @@
 .open > .dropdown-menu {
   display: block;
 }
+
+/* Sidebar */
+#sidebar-container {
+  z-index: 2;
+  position: fixed;
+  left: -100%;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  text-align: center;
+  transition: 500ms;
+ }
+
+#sidebar {
+  width: 80vw;
+  margin-top: 45px;
+  height: calc(100vh - 50px);
+  background: rgb(25, 25, 25);
+}
+
+#sidebar-container.menu-displayed {
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-container {
+    left: 0;
+    background: rgb(25, 25, 25);
+  }
+
+  #sidebar {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* Main Content */
+#main-content {
+  font-size: 0.8rem;
+  overflow-y: scroll; 
+  overflow: -moz-scrollbars-none; 
+  -ms-overflow-style: none; 
+  height: calc(100vh - 50px);  
+}

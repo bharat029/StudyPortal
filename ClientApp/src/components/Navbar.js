@@ -10,12 +10,17 @@ const Navbar = () => {
     context.dispatch({type:'SIGN_OUT'})
   }
 
+  const collpaseSidebar = (e) => {
+    e.preventDefault()
+    document.querySelector('#sidebar-container').classList.toggle('menu-displayed')
+  }
+
 	const collapse = (e) => document.querySelector('.collapse').classList = "collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end"
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark row sticky-top border-bottom">
 			<div className="navbar-brand border-0 text-center col-md-4 col-9 m-0 ml-3 p-0">
-				<a href="/" className="float-left text-white">Study Portal</a>
+				<h1 onClick={collpaseSidebar} className="text-white">Study Portal</h1>
 			</div>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
@@ -35,8 +40,8 @@ const Navbar = () => {
 						Dropdown
 					</button>
 					<div className="dropdown-menu text-center col-12" aria-labelledby="triggerId">
-						<Link className="dropdown-item col-12" onClick={collapse}  href="#">Action</Link>
-						<Link className="dropdown-item col-12 disabled" onClick={collapse}  href="#">Disabled action</Link>
+						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Action</Link>
+						<Link className="dropdown-item col-12 disabled" onClick={collapse}  to="#">Disabled action</Link>
 					</div>
 				</div>  
 				<ul className="list-unstyled col-12 col-md-5">
