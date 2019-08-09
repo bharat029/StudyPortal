@@ -18,33 +18,35 @@ const Navbar = () => {
 	const collapse = (e) => document.querySelector('.collapse').classList = "collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end"
 
 	return (
-		<nav className="navbar navbar-expand-sm navbar-dark row sticky-top border-bottom">
-			<div className="navbar-brand border-0 text-center col-md-4 col-9 m-0 ml-3 p-0">
-				<h1 onClick={collpaseSidebar} className="text-white">Study Portal</h1>
+		<nav className="navbar navbar-expand-sm navbar-dark row sticky-top">
+			<div className="navbar-brand border-0 col-md-4 col-9 m-0 ml-3 p-0">
+				<h1 onClick={collpaseSidebar} className="text-white m-0 h3">Study Portal</h1>
 			</div>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
 			</button>
 			<div className="collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end" id="navbarNav">
-				<ul className="navbar-nav col-12 col-md-5">
+				<ul className="navbar-nav col-12 col-md-7">
 					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" onClick={collapse}  exact to="/">Home</NavLink>
+						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  exact to="/">Home</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className="nav-link text-white text-center" onClick={collapse}  to="/aboutus">About Us</NavLink>
+						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  to="/aboutus">Examination</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  to="/aboutus">About Us</NavLink>
 					</li>
 				</ul>
 				<div className="dropdown col-12 col-md-2">
-					<button className="btn btn-secondary col-12 m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">
-						Dropdown
+					<button className="btn btn-secondary col-12 m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Resources
 					</button>
 					<div className="dropdown-menu text-center col-12" aria-labelledby="triggerId">
-						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Action</Link>
-						<Link className="dropdown-item col-12 disabled" onClick={collapse}  to="#">Disabled action</Link>
+						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Item 1</Link>
+						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Item 2</Link>
 					</div>
 				</div>  
-				<ul className="list-unstyled col-12 col-md-5">
+				<ul className="list-unstyled col-12 col-md-3" id="log">
           {
             context && context.state.signedIn  
             ? (

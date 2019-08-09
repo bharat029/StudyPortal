@@ -91,7 +91,7 @@ const SignUp = () => {
               <button type="submit" className="btn btn-success pl-0 pr-0 text-center col-md-4 col-6">Sign Up</button>
             </div>
           </form>
-          <div className="small">Already have an account?<Link to="/signin">Click here</Link> to sign in.</div>
+        <div className="small">Already have an account?<Link to="/signin">Click here</Link> to sign in.</div>
         </>) 
         : <Redirect to="/" />
       }
