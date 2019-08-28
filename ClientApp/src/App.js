@@ -18,7 +18,7 @@ const App = () => {
         <div className="col-md-9 offset-md-3" id="main-content">
           <Route exact path="/" component={Home} />
           <Route path="/aboutus" component={AboutUs} />
-          <Route path="/exam" component={Exam} />
+          <Route path="/exam/:name" render={(props) => <Exam { ...props } key={Math.random()} />} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <br /><br /><br />  
@@ -28,4 +28,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default App

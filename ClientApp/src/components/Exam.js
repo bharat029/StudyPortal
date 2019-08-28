@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Redirect } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import Question from './Question'
 
-const Exam = () => {
+const Exam = ({ match }) => {
   const [questions, setquestions] = useState([])
 
   const [current, setCurrent] = useState(0)
@@ -13,24 +13,28 @@ const Exam = () => {
 
   const context = useContext(UserContext)
 
+  const ac = new AbortController()
+
   useEffect(() => {
-    if (context){
-      fetch('/api/questions', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `bearer ${context.state.token}`
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          data = data.map(question => {
-            return { ...question, choice: null }
-          })
-          setquestions(data)
+    setCurrent(0)
+    setScore(0)
+    
+    fetch('/api/questions?name=' + match.params.name, {
+      headers: {
+        'Authorization': `bearer ${localStorage.getItem('token')}`
+      },
+      signal: ac.signal
+    })
+      .then(response => response.json())
+      .then(data => {
+      data = data.map(question => {
+          return { ...question, choice: null }
         })
-        .catch(err => console.log(err))
-    }
-  }, [context])
+        setquestions(data)
+      })
+      .catch(err => console.log(err))
+      return () => ac.abort() 
+    }, [match.params.name, ac])
 
   useEffect(() => {
     document.querySelectorAll('.question').forEach((ele, idx) => {
@@ -57,19 +61,39 @@ const Exam = () => {
     })
     setquestions(newquestions)
   }
-  
 
+  const next = () => {
+    if(current === questions.length - 1)  
+    {
+      const examName = match.params.name
+      const examScore = score / questions.length * 100
+
+      fetch('/api/user/exams', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ name: examName, score: examScore })
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+    setCurrent(current + 1)
+  }
+  
   return (
     <>
       <Helmet>
         <title>Exam - Study Portal</title>
       </Helmet>
       {
-        context.state.signedIn 
+        context.state.signedIn
         ? (
           <>
             <div id="page-title" className="row">
-              <h3>Exam</h3>
+              <h3>{ match && match.params.name }</h3>
             </div>
             <h4>Score: {score}/{questions.length}</h4>
             <div className="row ml-md-5">
@@ -82,7 +106,7 @@ const Exam = () => {
               }
               {
                 current < questions.length 
-                ? <Question question={questions[current]} setChoice={setChoice} next={() => setCurrent(current + 1)} inc={() => setScore(score + 1)} />
+                ? <Question question={questions[current]} setChoice={setChoice} next={next} inc={() => setScore(score + 1)} />
                 : <h6>Congratulations on completing the test!</h6>
               }
             </div>
