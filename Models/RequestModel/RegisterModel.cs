@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using StudyPortal.Models.Identity;
 
 namespace StudyPortal.Models.RequestModel
 {

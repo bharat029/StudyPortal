@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using StudyPortal.Models;
 using MongoDB.Driver;
 
@@ -18,11 +19,16 @@ namespace StudyPortal.Services
 
         public List<Questions> Get() => _questions.Find(question => true).ToList();
 
+        public List<Questions> Get(string name) => _questions.Find(question => question.ExamName == name).ToList();
+
         public Questions Create(Questions question)
         {
             _questions.InsertOne(question);
             return question;
         }
+
+        public List<string> Exams() => 
+            _questions.AsQueryable().Select(question => question.ExamName).Distinct().ToList();
 
         public void Update(string id, Questions questionsIn) =>
             _questions.ReplaceOne(questions => questions.Id == id, questionsIn);

@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from './components/Home';
-import AboutUs from './components/AboutUs';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Home from './components/Home';
+import AboutUs from './components/AboutUs';
+import Exam from './components/Exam';
 import UserContextProvider from './context/UserContext';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
         <div className="col-md-9 offset-md-3" id="main-content">
           <Route exact path="/" component={Home} />
           <Route path="/aboutus" component={AboutUs} />
+          <Route path="/exam" component={Exam} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <br /><br /><br />  

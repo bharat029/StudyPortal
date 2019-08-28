@@ -13,9 +13,9 @@ const SideBar = () => {
   return (
     <div id="sidebar-container" className="col-md-3" onClick={hide}>
       <div id="sidebar">
-        <div id="me" className="row ml-2">
-          <img className="img-fluid col-8 mx-auto rounded-circle mt-5" src="/imgs/account.jpg" alt={context.state.userName ? context.state.userName : 'User Name'} />
-          <h1 className="h4 col-12 mt-3 text-center">{context.state.userName ? context.state.userName : 'User Name'}</h1>
+        <div className="row m-0">
+          <img id="user" className="col-8 mt-3 p-0 mx-auto rounded-circle" src="/imgs/account.jpg" alt={context.state.userName ? context.state.userName : 'User Name'} />
+          <h1 className="h4 col-12 mt-2">{context.state.userName ? context.state.userName : 'User Name'}</h1>
         </div>
       </div>
     </div>

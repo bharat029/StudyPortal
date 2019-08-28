@@ -11,6 +11,7 @@ namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
     [Authorize]
+    [ApiController]
     public class QuestionsController : Controller
     {
         private readonly QuestionsServices _questionsServices;
@@ -21,19 +22,33 @@ namespace StudyPortal.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Questions> Init()
+        public IEnumerable<Questions> Get([FromQuery] string name)
         {
-            List<Questions> questions = _questionsServices.Get();
+            List<Questions> questions;
+
+            if(name == null)
+            {
+                questions = _questionsServices.Get();
+            }
+            else
+            {
+                questions = _questionsServices.Get(name);
+            }
+            
             return questions;
         }
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
+        public List<string> Exams() => _questionsServices.Exams();
+
+        [HttpPost]
         public Object Create([FromBody] QuestionsModel model) 
         {
             if(ModelState.IsValid)
             {
                 var questions = _questionsServices.Create(new Questions() {
                     Question = model.Question,
+                    ExamName = model.ExamName,
                     OptionA = model.OptionA,
                     OptionB = model.OptionB,
                     OptionC = model.OptionC,

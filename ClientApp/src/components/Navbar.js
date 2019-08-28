@@ -26,27 +26,27 @@ const Navbar = () => {
 				<span className="navbar-toggler-icon"></span>
 			</button>
 			<div className="collapse navbar-collapse row no-gutters col-md-8 mr-3 justify-content-end" id="navbarNav">
-				<ul className="navbar-nav col-12 col-md-7">
+				<ul className="navbar-nav mw-100 col-md-9">
 					<li className="nav-item">
 						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  exact to="/">Home</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  to="/aboutus">Examination</NavLink>
+						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  to="/exam">Examination</NavLink>
 					</li>
+          <div className="dropdown">
+            <button className="btn btn-secondary col-12 m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources
+            </button>
+            <div className="dropdown-menu text-center mw-100" aria-labelledby="triggerId">
+              <Link className="dropdown-item mw-100" onClick={collapse}  to="#">Item 1</Link>
+              <Link className="dropdown-item mw-100" onClick={collapse}  to="#">Item 2</Link>
+            </div>
+          </div>  
 					<li className="nav-item">
 						<NavLink className="nav-link my-auto text-white text-center" onClick={collapse}  to="/aboutus">About Us</NavLink>
-					</li>
+          </li>
 				</ul>
-				<div className="dropdown col-12 col-md-2">
-					<button className="btn btn-secondary col-12 m-0 p-2 dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Resources
-					</button>
-					<div className="dropdown-menu text-center col-12" aria-labelledby="triggerId">
-						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Item 1</Link>
-						<Link className="dropdown-item col-12" onClick={collapse}  to="#">Item 2</Link>
-					</div>
-				</div>  
-				<ul className="list-unstyled col-12 col-md-3" id="log">
+				<ul className="list-unstyled mw-100 col-md-3" id="log">
           {
             context && context.state.signedIn  
             ? (

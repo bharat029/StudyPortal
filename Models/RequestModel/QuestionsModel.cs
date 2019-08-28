@@ -8,6 +8,9 @@ namespace StudyPortal.Models.RequestModel
         public string Question { get; set; }
 
         [Required]
+        public string ExamName { get; set; }
+
+        [Required]
         public string OptionA { get; set; }
 
         [Required]

@@ -68,14 +68,6 @@ namespace StudyPortal.Controllers
         }
 
         [HttpPost("[action]")]
-        [Authorize]
-        public async Task<object> LogOut() 
-        {
-            await _signInManager.SignOutAsync();
-            return new {SignOuted = true};
-        }
-
-        [HttpPost("[action]")]
         public async Task<Object> LogIn([FromBody] LogInModel model)
         {
             if(ModelState.IsValid)
@@ -111,5 +103,56 @@ namespace StudyPortal.Controllers
         [HttpGet("[action]")]
         [Authorize]
         public IEnumerable<ApplicationUser> Users() => _userManager.Users;
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ApplicationUser> GetUser() => await _userManager.GetUserAsync(User);
+
+        [HttpPost("[action]")]
+        [Authorize]
+        public async Task<ExamModel> Exams([FromBody] ExamModel model)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+
+            if(user.Exams != null)
+            {
+                if(user.Exams.Find(exam => exam.Name == model.Name) == null)
+                {
+                    user.Exams.Add(new Exam() { Name = model.Name, Score = model.Score });
+                }
+                else 
+                {
+                    user.Exams.Find(exam => exam.Name == model.Name).Score = model.Score;
+                }
+            }
+            else
+            {
+                user.Exams = new List<Exam>();
+                user.Exams.Add(new Exam() { Name = model.Name, Score = model.Score });
+            }
+            
+            await _userManager.UpdateAsync(user);
+            
+            return model;
+        } 
+
+        [HttpGet("[action]")]
+        [Authorize]
+        public async Task<IEnumerable<Exam>> Exams()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            return user.Exams;
+        }
+
+        [HttpGet("[action]")]
+        [Authorize]
+        public async Task<int> Score([FromQuery] string name)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            
+            int score = user.Exams.Find(exam => exam.Name == name).Score;
+
+            return score;
+        }
     }
 }

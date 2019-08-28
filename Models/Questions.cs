@@ -11,6 +11,8 @@ namespace StudyPortal.Models
 
         public string Question { get; set; }
 
+        public string ExamName { get; set; }
+
         public string OptionA { get; set; }
 
         public string OptionB { get; set; }
