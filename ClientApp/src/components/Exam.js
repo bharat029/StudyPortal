@@ -12,9 +12,6 @@ const Exam = ({ match }) => {
   const [score, setScore] = useState(0)
 
   const context = useContext(UserContext)
-
-  const ac = new AbortController()
-
   useEffect(() => {
     setCurrent(0)
     setScore(0)
@@ -22,19 +19,18 @@ const Exam = ({ match }) => {
     fetch('/api/questions?name=' + match.params.name, {
       headers: {
         'Authorization': `bearer ${localStorage.getItem('token')}`
-      },
-      signal: ac.signal
+      }
     })
       .then(response => response.json())
       .then(data => {
       data = data.map(question => {
           return { ...question, choice: null }
         })
+        console.log(data)
         setquestions(data)
       })
       .catch(err => console.log(err))
-      return () => ac.abort() 
-    }, [match.params.name, ac])
+    }, [match.params.name])
 
   useEffect(() => {
     document.querySelectorAll('.question').forEach((ele, idx) => {
@@ -107,7 +103,7 @@ const Exam = ({ match }) => {
               {
                 current < questions.length 
                 ? <Question question={questions[current]} setChoice={setChoice} next={next} inc={() => setScore(score + 1)} />
-                : <h6>Congratulations on completing the test!</h6>
+                : <h4>Congratulations on completing the test!<br />We keep your latest scores</h4>
               }
             </div>
           </>
