@@ -22,49 +22,49 @@ namespace StudyPortal.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Questions> Get([FromQuery] string name)
+        public IActionResult Get([FromQuery] string name)
         {
             List<Questions> questions;
 
             if(name == null)
-            {
                 questions = _questionsServices.Get();
-            }
             else
-            {
                 questions = _questionsServices.Get(name);
-            }
             
-            return questions;
+            return Ok(questions);
         }
 
         [HttpGet("[action]")]
-        public List<string> Exams() => _questionsServices.Exams();
+        public IActionResult Exams() => Ok(_questionsServices.Exams());
 
         [HttpPost]
-        public Object Create([FromBody] QuestionsModel model) 
+        public IActionResult Create([FromBody] List<QuestionsModel> model) 
         {
             if(ModelState.IsValid)
             {
-                var questions = _questionsServices.Create(new Questions() {
-                    Question = model.Question,
-                    ExamName = model.ExamName,
-                    OptionA = model.OptionA,
-                    OptionB = model.OptionB,
-                    OptionC = model.OptionC,
-                    OptionD = model.OptionD,
-                    CorrectOption = model.CorrectOption
-                });
-                return questions;
+                List<Questions> questions = new List<Questions>();
+
+                foreach (var question in model)
+                {
+                    questions.Add(new Questions {
+                        Question = question.Question,
+                        ExamName = question.ExamName,
+                        OptionA = question.OptionA,
+                        OptionB = question.OptionB,
+                        OptionC = question.OptionC,
+                        OptionD = question.OptionD,
+                        CorrectOption = question.CorrectOption
+                    });
+                }
+                return Ok(questions);
             }
+            
             List<CustomError> ErrorList = new List<CustomError>();
 
             foreach (var key in ModelState.Keys)
-            {   
                 ErrorList.Add(new CustomError() {code = key, description = ModelState[key].Errors[0].ErrorMessage});
-            }
 
-            return ErrorList;
+            return BadRequest(ErrorList);
         }
     }
 }

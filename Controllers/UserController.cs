@@ -15,6 +15,7 @@ using StudyPortal.Helpers;
 namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -32,7 +33,8 @@ namespace StudyPortal.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<Object> Register([FromBody] RegisterModel model)
+        [AllowAnonymous]
+        public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             if(ModelState.IsValid)
             {
@@ -50,25 +52,24 @@ namespace StudyPortal.Controllers
                         Token = token,
                         UserName = user.UserName
                     };
-                    return responseData;
+                    return Ok(responseData);
                 }
                 
                 _logger.LogWarning($"User {user.UserName} created!");
-                return result.Errors;
+                return BadRequest(result.Errors);
             }
 
             List<CustomError> ErrorList = new List<CustomError>();
 
             foreach (var key in ModelState.Keys)
-            {   
                 ErrorList.Add(new CustomError() {code = key, description = ModelState[key].Errors[0].ErrorMessage});
-            }
 
-            return ErrorList;
+            return BadRequest(ErrorList);
         }
 
         [HttpPost("[action]")]
-        public async Task<Object> LogIn([FromBody] LogInModel model)
+        [AllowAnonymous]
+        public async Task<IActionResult> LogIn([FromBody] LogInModel model)
         {
             if(ModelState.IsValid)
             {
@@ -84,46 +85,37 @@ namespace StudyPortal.Controllers
                         Token = token,
                         UserName = user.UserName
                     };
-                    return responseData;
+                    return Ok(responseData);
                 }
                 
-                return new [] { new CustomError() {code = "LogInFailed", description = "Incorrect User Name or Password"}};
+                return BadRequest(new [] { new CustomError {code = "LogInFailed", description = "Incorrect User Name or Password"}});
             }
 
             List<CustomError> ErrorList = new List<CustomError>();
 
             foreach (var key in ModelState.Keys)
-            {   
                 ErrorList.Add(new CustomError() {code = key, description = ModelState[key].Errors[0].ErrorMessage});
-            }
 
-            return ErrorList;
+            return BadRequest(ErrorList);
         }
 
         [HttpGet("[action]")]
-        [Authorize]
-        public IEnumerable<ApplicationUser> Users() => _userManager.Users;
+        public IActionResult Users() => Ok(_userManager.Users);
 
         [HttpGet]
-        [Authorize]
-        public async Task<ApplicationUser> GetUser() => await _userManager.GetUserAsync(User);
+        public async Task<IActionResult> GetUser() => Ok(await _userManager.GetUserAsync(User));
 
         [HttpPost("[action]")]
-        [Authorize]
-        public async Task<ExamModel> Exams([FromBody] ExamModel model)
+        public async Task<IActionResult> Exams([FromBody] ExamModel model)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
 
             if(user.Exams != null)
             {
                 if(user.Exams.Find(exam => exam.Name == model.Name) == null)
-                {
                     user.Exams.Add(new Exam() { Name = model.Name, Score = model.Score });
-                }
                 else 
-                {
                     user.Exams.Find(exam => exam.Name == model.Name).Score = model.Score;
-                }
             }
             else
             {
@@ -133,26 +125,24 @@ namespace StudyPortal.Controllers
             
             await _userManager.UpdateAsync(user);
             
-            return model;
+            return Ok(model);
         } 
 
         [HttpGet("[action]")]
-        [Authorize]
-        public async Task<IEnumerable<Exam>> Exams()
+        public async Task<IActionResult> Exams()
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
-            return user.Exams;
+            return Ok(user.Exams);
         }
 
         [HttpGet("[action]")]
-        [Authorize]
-        public async Task<int> Score([FromQuery] string name)
+        public async Task<IActionResult> Score([FromQuery] string name)
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
             
             int score = user.Exams.Find(exam => exam.Name == name).Score;
 
-            return score;
+            return Ok(score);
         }
     }
 }

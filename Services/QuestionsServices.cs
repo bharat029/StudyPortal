@@ -21,10 +21,10 @@ namespace StudyPortal.Services
 
         public List<Questions> Get(string name) => _questions.Find(question => question.ExamName == name).ToList();
 
-        public Questions Create(Questions question)
+        public List<Questions> Create(List<Questions> questions)
         {
-            _questions.InsertOne(question);
-            return question;
+            _questions.InsertMany(questions);
+            return questions;
         }
 
         public List<string> Exams() => 

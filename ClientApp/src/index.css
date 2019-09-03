@@ -135,3 +135,7 @@ body {
 .incorrect {
   border: 2px solid red !important;
 }
+
+.form-check-label:hover {
+  cursor: pointer;
+}
