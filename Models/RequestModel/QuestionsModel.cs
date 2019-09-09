@@ -19,11 +19,12 @@ namespace StudyPortal.Models.RequestModel
         [Required]
         public string OptionC { get; set; }
 
-        [Required]
         public string OptionD { get; set; }
 
+        public string OptionE { get; set; }
+
         [Required]
-        [Range(minimum: 0, maximum: 3)]
+        [Range(minimum: 0, maximum: 4)]
         public int CorrectOption { get; set; }
     }
 }

@@ -1,0 +1,357 @@
+[
+	{
+		"question": "",
+		"test": "GRE Paper 1",
+		"option a": "A) ",
+		"option b": "B) ",
+		"option c": "C) ",
+		"option d": "D) ",
+		"option e": "E) ",
+		"answer": ""
+	},
+	{
+		"question": "A dry-farmed tomato raised in low-nitrogen soil will often have the nutrient value of a much larger conventionally grown tomato, and its flavor may be similarly _________ ",
+		"test": "GRE Paper 1",
+		"option a": "A) delicious",
+		"option b": "B) healthful",
+		"option c": "C) scanty",
+		"option d": "D) concentrated",
+		"option e": "E) shrunken",
+		"answer": 3
+	},
+	{
+		"question": "Most viewers of today’s reality television underestimate the degree of _________ with which the seemingly artless narrative of each episode is assembled: oftentimes, actors interviewed on camera are asked to repeat their story half a dozen times before producers are satisfied.",
+		"test": "GRE Paper 1",
+		"option a": "A) dramaturgy",
+		"option b": "B) opportunism",
+		"option c": "C) fallacy",
+		"option d": "D) contrivance",
+		"option e": "E) histrionics",
+		"answer": 3
+	},
+	{
+		"question": "Many (i) _________ have commentated that football reflects an industrial perspective because the game time is inflexibly determined by the clock, whereas baseball stems from an agrarian one, in which, the passage of time is more (ii) _________ and determined by events.",
+		"test": "GRE Paper 1",
+		"option a": "A) pundits, amorphous",
+		"option b": "B) amateurs, pacific",
+		"option c": "C) parvenus, asymmetrical",
+
+		"answer": 0
+	},
+	{
+		"question": "Ernest Hemingway, the novelist and proponent of traditional masculine virtues that were already considered (i) _________ by his more progressive peers, eventually lost currency with the general public; although his earlier literary works remained popular, his continuing adherence to that code drove him to disdain society, which, in turn, (ii) _________ him",
+		"test": "GRE Paper 1",
+		"option a": "A) effeminate, shunned",
+		"option b": "B) anachronistic, eulogized",
+		"option c": "C) sardonic, murdered",
+
+		"answer": 1
+	},
+	{
+		"question": "While a (i) _________, the smallest amount that can exist independently, of water could be said to be a single molecule, a (ii) _________ of dust could be made up of pollen, hair, human skin cells, minerals from soil, or even burnt meteor particles. Thus, one definition of dust is “solid particles with a diameter of less than 500 micrometers” — a (iii) _________ definition that is based only on size and state of matter rather than on structure.",
+		"test": "GRE Paper 1",
+		"option a": "A) plethora, trove, precise",
+		"option b": "B) parameter, covey, loose",
+		"option c": "C) quantum, mote, deleterious",
+		"answer": 2
+	},
+	{
+		"question": "From the battle’s opening (i) _________ to its (ii) _________ conclusion, the forces of destruction razed a path through the city, ultimately leaving behind a (iii) _________ stillness where there once had been streets and squares bustling with life.",
+		"test": "GRE Paper 1",
+		"option a": "A) denouement sanguinary brusque",
+		"option b": "B) salvo celebrated capitulatory",
+		"option c": "C) philippic blithe disquieting",
+		"answer": 1
+	},
+	{
+		"question": "Quantity A Quantity B
+(–3)4 (–3)-3",
+		"test": "GRE Paper 1",
+		"option a": "A) Quantity A is greater.",
+		"option b": "B) Quantity B is greater.",
+		"option c": "C) The two quantities are equal",
+		"option d": "D) The relationship cannot be determined from the information given.",
+		"answer": 0
+	},
+	{
+		"question": "Quantity A Quantity
+7 × y8 × y-6 3y^9",
+		"test": "GRE Paper 1",
+		"option a": "A) Quantity A is greater.",
+		"option b": "B) Quantity B is greater.",
+		"option c": "C) The two quantities are equal",
+		"option d": "D) The relationship cannot be determined from the information given.",
+		"answer": 3
+	},
+	{
+		"question": "xy > 0 and yz < 0
+Quantity A Quantity B
+xz 0",
+		"test": "GRE Paper 1",
+		"option a": "A) Quantity A is greater.",
+		"option b": "B) Quantity B is greater.",
+		"option c": "C) The two quantities are equal",
+		"option d": "D) The relationship cannot be determined from the information given.",
+		"answer": 2
+	},
+	{
+		"question": " In 2011 , it cost Tammy $1 .30 to manufacture each copy of her magazine, which she sold for $2.30. In 201 2, it cost
+Tammy $1 .50 to manufacture each copy of the same magazine, which she sold for $3.00.
+Quantity A
+Quantity B
+The percent by which Tammy’s profit per copy of the magazine changed from
+201 1 to 201 2. 33.33%",
+		"test": "GRE Paper 1",
+		"option a": "A) Quantity A is greater.",
+		"option b": "B) Quantity B is greater.",
+		"option c": "C) The two quantities are equal",
+		"option d": "D) The relationship cannot be determined from the information given.",
+		"answer": 0
+	},
+	{
+		"question": "List X: 4, 7, 9, 1 1 , 24, 32
+List Y (not shown) consists of 6 unique numbers, each computed from the corresponding term in List X by
+dividing the number in List X by 2, then adding 5 to the result.
+Quantity A Quantity B
+The range of List Y; 6 less than the greatest number in List Y",
+		"test": "GRE Paper 1",
+		"option a": "A) Quantity A is greater.",
+		"option b": "B) Quantity B is greater.",
+		"option c": "C) The two quantities are equal",
+		"option d": "D) The relationship cannot be determined from the information given.",
+		"answer": 1
+	},
+	{
+		"question": "In an apartment complex, 60 percent of the apartments contain at least one television, and 20 percent of these
+apartments are equipped with cable. If every apartment that is equipped with cable contains at least one
+television, what percent of the apartments in the complex are not equipped with cable?",
+		"test": "GRE Paper 1",
+		"option a": "A) 8",
+		"option b": "B) 12",
+		"option c": "C) 16",
+		"option d": "D) 88",
+		"option e": "E) 92",
+		"answer": 3
+	},
+	{
+		"question": "If m+5<1.5, which of the following scould be the value of m?",
+		"test": "GRE Paper 1",
+		"option a": "A) -15/4",
+		"option b": "B) -7/2",
+		"option c": "C) -2",
+		"option d": "D) 7/2",
+		"option e": "E) 2",
+		"answer": 0
+	},
+	{
+		"question": "Company A can pave 500 feet of sidewalk in 6 hours, and Company B can pave 1 ,000 feet of sidewalk in 8 hours.
+At these rates, how many more yards of sidewalk can Company B pave in 9 hours than Company A can pave in 9
+hours? (3 feet = 1 yard)",
+		"test": "GRE Paper 1",
+		"option a": "A) 125",
+		"option b": "B) 166",
+		"option c": "C) 333",
+		"option d": "D) 375",
+		"option e": "E) 500",
+		"answer": 0
+	},
+	{
+		"question": "Cormack McCarthy writes in an idiom both spare and flowery, with paragraphs of short, declarative sentences
+interspersed with long, _________ passages of description and philosophizing.",
+		"test": "GRE Paper 2",
+		"option a": "A) boring",
+		"option b": "B) floral",
+		"option c": "C) baroque",
+		"option d": "D) classical",
+		"option e": "E) fictional",
+		"answer": 2
+	},
+	{
+		"question": "Simony is one of the three primary (i) ___________ in Joyce’s Dubliners, recurring in almost every story in the
+collection. In some stories, the simony is more or less literal, with characters attempting to purchase salvation
+with money. In other stories, it arrives in a more (ii) ____________ form.",
+		"test": "GRE Paper 2",
+		"option a": "A) theses, spiritual",
+		"option b": "B) leitmotifs, pecuniary",
+		"option c": "C) characters, figurative",
+		"answer": 1
+	},
+	{
+		"question": "Mixed-media artist Mae Chevrette begins each painting by affixing to canvas a photo from her travels, then
+embedding ____________ such as old maps and sheet music before applying paint. The final works,
+emblazoned with quotes as well as evidence of Chevrette’s extensive and wide-ranging travels, convey a sense of
+joyful __________.",
+		"test": "GRE Paper 2",
+		"option a": "A) devices, philosophy",
+		"option b": "B) apocrypha, anomie",
+		"option c": "C) ephemera, wanderlust",
+		"answer": 2
+	},
+	{
+		"question": "Taxation of legal substances known to be of a (i) _________ nature necessarily threads a thin line; it threatens to
+(ii) _________ government support for consumption of a product the use of which it is rightly interested in
+curtailing",
+		"test": "GRE Paper 2",
+		"option a": "A) noxious, incentivize",
+		"option b": "B) salubrious, legitimize",
+		"option c": "C) hortatory, signify",
+		"answer": 0
+	},
+	{
+		"question": "The newspaper’s essay contest soliciting defenses of anti-vegetarianism yielded only a handful of entries that did
+not allow authors’ (i) _________ to dictate their arguments: focusing on the seemingly universal human (ii)
+_________ for consuming animal products, these authors successfully navigated the gray area between simple
+self-justification and genuine apologia. The successful submissions argued not so much that desire or tradition
+could justify the current palate, but that the eradication of factory farming, the (iii) _________, and the return
+to natural feed can blunt the evils caused by its excesses.",
+		"test": "GRE Paper 2",
+		"option a": "A) erudition, penchant, effacement of resources",
+		"option b": "B) proclivities, salutation, imputation of ecology",
+		"option c": "C) tenacity, earmark, mitigation of suffering",
+		"answer": 2
+	},
+	{
+		"question": "The long-term Senator began his career as an unrepentant (i) _________ for his party’s excesses, defending
+policies which posterity has since judged to be reactionary, even (ii) _________; more recently he has taken
+(iii) _________ line, denying that those very policies ever reflected the party’s values.",
+		"test": "GRE Paper 2",
+		"option a": "A) critic, surreptitious, an analeptic",
+		"option b": "B) apologist, acerbic, an unconscionable",
+		"option c": "C) appellant, retrograde, a revisionist",
+		"answer": 1
+	},
+	{
+		"question": "Set M consists of all the integers between -2 and 1 2, inclusive
+Set N consists of all the integers between 9 and 1 5, inclusive
+Quantity A; Quantity B
+The smallest integer in Set M that is also in Set N; 9",
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 2
+	},
+	{
+		"question": "17% of p is equal to 18% of q, where p and q are positive
+Quantity A; Quantity B
+p; q",
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 0
+	},
+	{
+		"question": "Circle A has area a
+Semicircle B has area a/2
+Quantity A; Quantity B
+The circumference of Circle A; Twice the perimeter of semicircle B
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 1
+	},
+	{
+		"question": "Quantity A; Quantity B
+The standard deviation of the set 1 , 5, 7, 19; The standard deviation of the set 0, 5, 7, 20
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 1
+	},
+	{
+		"question": "An isosceles triangle has a perimeter of 28. The shortest side has length 8.: Quantity A; Quantity B
+The length of the longest side of the triangle; 12
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 3
+	},
+	{
+		"question": "(3 - z)(z + 4) = 0: Quantity A; Quantity B
+z; 5
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 1
+	},
+	{
+		"question": "a > b > c > d
+ab > 0
+ad < 0: Quantity A; Quantity B
+ac; cd
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 3
+	},
+	{
+		"question": "a > b > c > d
+ab > 0
+ad < 0: Quantity A; Quantity B
+ac; cd
+		"test": "GRE Paper 2",
+		"option a": "A) Quantity A is greater",
+		"option b": "B) Quantity A is greater",
+		"option c": "C) The two quantities are equal.",
+		"option d": "D) The relationship cannot be determined from the information given",
+		"answer": 3
+	},
+	{
+		"question": "If z = 3^4, then (3^z)^z = ",
+		"test": "GRE Paper 2",
+		"option a": "A) 3^16"
+		"option b": "B) 3^81",
+		"option c": "C) 3^324",
+		"option d": "D) 3^405",
+		"option e": "E) 3^6,561",
+		"answer": 4
+	},
+	{
+		"question": "A company’s annual expenses are composed entirely of a fixed amount in costs, plus a variable amount that is
+directly proportional to the number of clients served. In 2009, the company served 450 clients and its total
+expense was $830,000. In 201 0, the company served 51 0 clients and its total expense was $896,000. What is
+the company’s fixed annual expense, in dollars?",
+		"test": "GRE Paper 2",
+		"option a": "A) 1,844",
+		"option b": "B) 1,757",
+		"option c": "C) 335,000",
+		"option d": "D) 485,000",
+		"option e": "E) 830,000",
+		"answer": 2
+	},
+	{
+		"question": "The tens digit is missing from the three-digit number 8 __ 9. If the tens digit is to be randomly selected from the
+ten different digits from 0 to 9, what is the probability that the resulting three-digit number will be a multiple of
+9?",
+		"test": "GRE Paper 2",
+		"option a": "A) 0.1",
+		"option b": "B) 0.2",
+		"option c": "C) 0.4",
+		"option d": "D) 0.9",
+		"option e": "E) 1",
+		"answer": 0
+	},
+	{
+		"question": "If f(-0.5) = 0, which of the following could be f(x)?",
+		"test": "GRE Paper 2",
+		"option a": "A) 2x + 2",
+		"option b": "B) 4x - 2",
+		"option c": "C) 4x^2 - 1",
+		"option d": "D) x^2 - 1",
+		"option e": "E) (-x)^2 - 2.5",
+		"answer": 2
+	}
+]

@@ -11,7 +11,6 @@ namespace StudyPortal.Controllers
 {
     [Route("api/[controller]")]
     [Authorize]
-    [ApiController]
     public class QuestionsController : Controller
     {
         private readonly QuestionsServices _questionsServices;
@@ -46,16 +45,20 @@ namespace StudyPortal.Controllers
 
                 foreach (var question in model)
                 {
-                    questions.Add(new Questions {
+                    questions.Add(new Questions() {
                         Question = question.Question,
                         ExamName = question.ExamName,
                         OptionA = question.OptionA,
                         OptionB = question.OptionB,
                         OptionC = question.OptionC,
                         OptionD = question.OptionD,
+                        OptionE = question.OptionE,
                         CorrectOption = question.CorrectOption
                     });
                 }
+
+                _questionsServices.Create(questions);
+
                 return Ok(questions);
             }
             
