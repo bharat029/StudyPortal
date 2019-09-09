@@ -78,11 +78,24 @@ const Question = ({ question, next, inc, setChoice }) => {
               <input type="radio" className="form-check-input" id={question.optionC} name="choice" value="2" />{question.optionC}
             </label>
           </div>
-          <div className="form-check w-100 border mt-1 row">
-            <label className="form-check-label col-11 p-1" htmlFor={question.optionD}>
-              <input type="radio" className="form-check-input" id={question.optionD} name="choice" value="3" />{question.optionD}
-            </label>
-          </div>
+          {
+            question.optionD && (
+              <div className="form-check w-100 border mt-1 row">
+                <label className="form-check-label col-11 p-1" htmlFor={question.optionD}>
+                  <input type="radio" className="form-check-input" id={question.optionD} name="choice" value="3" />{question.optionD}
+                </label>
+              </div>
+            )
+          }
+          {
+            question.optionE && (
+              <div className="form-check w-100 border mt-1 row">
+                <label className="form-check-label col-11 p-1" htmlFor={question.optionE}>
+                  <input type="radio" className="form-check-input" id={question.optionE} name="choice" value="3" />{question.optionE}
+                </label>
+              </div>
+            )
+          }
           <button type="submit" className="btn btn-primary mt-3" style={{ marginLeft: '-15px' }}><i className="fa fa-check"></i> check</button>
           <button onClick={goNext} className="btn btn-success mt-3 mr-3 float-right">Next <i className="fa fa-arrow-right"></i></button>
         </form>    

@@ -21,6 +21,8 @@ namespace StudyPortal.Models
 
         public string OptionD { get; set; }
 
+        public string OptionE { get; set; }
+
         public int CorrectOption { get; set; }
     }
 }
