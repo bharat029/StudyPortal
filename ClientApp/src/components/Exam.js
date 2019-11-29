@@ -82,7 +82,7 @@ const Exam = ({ match }) => {
   return (
     <>
       <Helmet>
-        <title>Exam - Study Portal</title>
+        <title>Exam - Student Portal</title>
       </Helmet>
       {
         context.state.signedIn

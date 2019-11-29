@@ -56,7 +56,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>Sign Up - Study Portal</title>
+        <title>Sign Up - Student Portal</title>
       </Helmet>
       {
         !context.state.signedIn 

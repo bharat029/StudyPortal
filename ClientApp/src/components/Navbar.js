@@ -33,7 +33,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark row sticky-top">
 			<div className="navbar-brand border-0 col-md-4 col-9 m-0 ml-3 p-0">
-				<h1 onClick={collpaseSidebar} className="text-white m-0 h3">Study Portal</h1>
+				<h1 onClick={collpaseSidebar} className="text-white m-0 h3">Student Portal</h1>
 			</div>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ const Navbar = () => {
             </button>
             <div className="dropdown-menu text-center mw-100" aria-labelledby="exam">
               {
-                exams && exams.map((exam, idx) => <Link key={idx} className="dropdown-item mw-100" onClick={collapse}  to={`/exam/${exam}`}>{exam}</Link>)
+                exams && exams.map((exam, idx) => <Link key={idx} className="dropdown-item mw-100" onClick={collapse} rel="noopener noreferrer"  to={`/exam/${exam}`}>{exam}</Link>)
               }
             </div>
           </div>  
@@ -58,8 +58,9 @@ const Navbar = () => {
               Resources
             </button>
             <div className="dropdown-menu text-center mw-100" aria-labelledby="resources">
-              <Link className="dropdown-item mw-100" onClick={collapse}  to="#">Item 1</Link>
-              <Link className="dropdown-item mw-100" onClick={collapse}  to="#">Item 2</Link>
+              <a className="dropdown-item mw-100" onClick={collapse} target="_blank" href="https://bit.ly/2ozrFON">GRE Reference</a>
+              <a className="dropdown-item mw-100" onClick={collapse} target="_blank" href="#">TOEFL Resources</a>
+              <a className="dropdown-item mw-100" onClick={collapse} target="_blank" href="#">IELTS Resources</a>
             </div>
           </div>  
 					<li className="nav-item col-3">

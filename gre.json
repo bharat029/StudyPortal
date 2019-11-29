@@ -195,7 +195,7 @@
 		"correctOption": 0
 	},
 	{
-		"question": "Circle A has area a. Semicircle B has area a/2. Quantity A; Quantity B: The circumference of Circle A; Twice the perimeter of semicircle B"
+		"question": "Circle A has area a. Semicircle B has area a/2. Quantity A; Quantity B: The circumference of Circle A; Twice the perimeter of semicircle B",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -204,7 +204,7 @@
 		"correctOption": 1
 	},
 	{
-		"question": "Quantity A; Quantity B: The standard deviation of the set 1 , 5, 7, 19; The standard deviation of the set 0, 5, 7, 20"
+		"question": "Quantity A; Quantity B: The standard deviation of the set 1 , 5, 7, 19; The standard deviation of the set 0, 5, 7, 20",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -213,7 +213,7 @@
 		"correctOption": 1
 	},
 	{
-		"question": "An isosceles triangle has a perimeter of 28. The shortest side has length 8.: Quantity A; Quantity B: The length of the longest side of the triangle; 12"
+		"question": "An isosceles triangle has a perimeter of 28. The shortest side has length 8.: Quantity A; Quantity B: The length of the longest side of the triangle; 12",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -222,7 +222,7 @@
 		"correctOption": 3
 	},
 	{
-		"question": "(3 - z)(z + 4) = 0: Quantity A; Quantity B z; 5"
+		"question": "(3 - z)(z + 4) = 0: Quantity A; Quantity B z; 5",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -231,7 +231,7 @@
 		"correctOption": 1
 	},
 	{
-		"question": "a > b > c > d | ab > 0 | ad < 0: Quantity A; Quantity B ac; cd"
+		"question": "a > b > c > d | ab > 0 | ad < 0: Quantity A; Quantity B ac; cd",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -240,7 +240,7 @@
 		"correctOption": 3
 	},
 	{
-		"question": "a > b > c > d | ab > 0 | ad < 0: Quantity A; Quantity B: ac; cd"
+		"question": "a > b > c > d | ab > 0 | ad < 0: Quantity A; Quantity B: ac; cd",
 		"examName": "GRE Paper 2",
 		"optionA": "A) Quantity A is greater",
 		"optionB": "B) Quantity A is greater",
@@ -251,7 +251,7 @@
 	{
 		"question": "If z = 3^4, then (3^z)^z = ",
 		"examName": "GRE Paper 2",
-		"optionA": "A) 3^16"
+		"optionA": "A) 3^16",
 		"optionB": "B) 3^81",
 		"optionC": "C) 3^324",
 		"optionD": "D) 3^405",
